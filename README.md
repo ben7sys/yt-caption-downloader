@@ -19,6 +19,7 @@ LANGUAGE1
 LANGUAGE2
 
 Dateistruktur von Github Copilot
+
 yt-caption-downloader/
 ├── Dockerfile
 ├── README.md
@@ -101,23 +102,13 @@ touch Dockerfile README.md package.json src/index.js src/api/youtube.js src/comp
 npm install express axios dotenv
 ```
 
+**Weitere Befehle**
+
+```bash
+npm test
+```
+
 6. **Code schreiben**: Beginnen Sie mit dem Schreiben Ihres Codes. Sie könnten mit dem Hauptservercode in `src/index.js` beginnen und dann die einzelnen Komponenten und Hilfsfunktionen implementieren.
-
-// src/index.js
-
-const express = require('express');
-const app = express();
-const port = 3000;
-
-// Routes
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
 
 7. **Testen**: Schreiben Sie Tests für Ihren Code und führen Sie diese aus, um sicherzustellen, dass alles wie erwartet funktioniert.
 
@@ -128,4 +119,4 @@ app.listen(port, () => {
 10. **Deployment**: Wenn Sie mit der Entwicklung fertig sind und alle Tests bestanden haben, können Sie Ihre Anwendung bereitstellen.
 
 
-npm test
+

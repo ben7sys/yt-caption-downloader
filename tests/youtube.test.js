@@ -1,23 +1,68 @@
-const { searchVideos } = require('../src/api/youtube');
-// FILEPATH: /home/sieben/github/yt-caption-downloader/tests/youtube.test.js
+const youtubeApi = require('../../src/api/youtube');
+const axios = require('axios');
 
-describe('searchVideos', () => {
-    it('should return an array of videos matching the query', async () => {
-        const query = 'cats';
-        const videos = await searchVideos(query);
+// Mock axios, um Netzwerkanfragen zu simulieren
+jest.mock('axios');
 
-        expect(Array.isArray(videos)).toBe(true);
-        expect(videos.length).toBeGreaterThan(0);
-        expect(videos[0]).toHaveProperty('title');
-        expect(videos[0]).toHaveProperty('description');
-        expect(videos[0]).toHaveProperty('url');
+describe('YouTube API', () => {
+  describe('getCaptions', () => {
+    it('should fetch captions correctly', async () => {
+      const mockCaptions = {
+        items: [
+          { id: '1', snippet: { language: 'en', name: 'English' } },
+          { id: '2', snippet: { language: 'de', name: 'Deutsch' } }
+        ]
+      };
+      axios.get.mockResolvedValue({ data: mockCaptions });
+
+      const videoId = 'someVideoId';
+      const captions = await youtubeApi.getCaptions(videoId);
+
+      expect(axios.get).toHaveBeenCalledWith(expect.stringContaining('captions'), expect.objectContaining({
+        params: {
+          part: 'snippet',
+          videoId,
+          key: expect.any(String)
+        }
+      }));
+      expect(captions).toEqual(mockCaptions.items);
     });
 
-    it('should return an empty array if no videos are found', async () => {
-        const query = 'nonexistentquery';
-        const videos = await searchVideos(query);
+    it('should handle errors', async () => {
+      axios.get.mockRejectedValue(new Error('Network error'));
 
-        expect(Array.isArray(videos)).toBe(true);
-        expect(videos.length).toBe(0);
+      const videoId = 'someVideoId';
+      const captions = await youtubeApi.getCaptions(videoId);
+
+      expect(captions).toBeNull();
     });
+  });
+
+  describe('downloadCaption', () => {
+    it('should download a caption correctly', async () => {
+      const mockCaptionData = 'Subtitle data as string or blob';
+      axios.get.mockResolvedValue({ data: mockCaptionData });
+
+      const captionId = 'captionId1';
+      const data = await youtubeApi.downloadCaption(captionId);
+
+      expect(axios.get).toHaveBeenCalledWith(expect.stringContaining(`captions/${captionId}`), expect.objectContaining({
+        params: {
+          tfmt: 'srt',
+          key: expect.any(String)
+        },
+        responseType: 'blob'
+      }));
+      expect(data).toBe(mockCaptionData);
+    });
+
+    it('should handle errors', async () => {
+      axios.get.mockRejectedValue(new Error('Network error'));
+
+      const captionId = 'captionId1';
+      const data = await youtubeApi.downloadCaption(captionId);
+
+      expect(data).toBeNull();
+    });
+  });
 });
