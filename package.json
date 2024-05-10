@@ -1,0 +1,20 @@
+{
+  "name": "yt-caption-downloader",
+  "version": "1.0.0",
+  "description": "a simple youtube caption downloader using youtube api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben7sys/yt-caption-downloader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben7sys/yt-caption-downloader/issues"
+  },
+  "homepage": "https://github.com/ben7sys/yt-caption-downloader#readme"
+}
