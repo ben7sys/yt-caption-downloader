@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/ben7sys/yt-caption-downloader/issues"
   },
-  "homepage": "https://github.com/ben7sys/yt-caption-downloader#readme"
+  "homepage": "https://github.com/ben7sys/yt-caption-downloader#readme",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
 }
