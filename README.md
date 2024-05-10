@@ -126,3 +126,6 @@ app.listen(port, () => {
 9. **Dockerisierung**: Schreiben Sie Ihr `Dockerfile` und testen Sie die Dockerisierung Ihrer Anwendung.
 
 10. **Deployment**: Wenn Sie mit der Entwicklung fertig sind und alle Tests bestanden haben, können Sie Ihre Anwendung bereitstellen.
+
+
+npm test
