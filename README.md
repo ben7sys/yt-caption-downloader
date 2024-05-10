@@ -1,6 +1,13 @@
 # yt-caption-downloader
 a simple youtube caption downloader using youtube api
 
+# Inspiration:
+https://github.com/1c7/Youtube-Auto-Subtitle-Download
+Script injection mit Tampermonkey Browser Erweiterung
+
+Da kann ich mir das sparen:
+
+:D :) :( :( :(
 
 Bitte hilf mir mein Konzept für mein Projekt yt-caption-downloader zu verbessern und zu perfektionieren.
 Ich suche eine schnelle, sichere aber einfache Möglichkeit, mithilfe der YouTube API die Subtitles eines YouTube-Videos herunterzuladen.
