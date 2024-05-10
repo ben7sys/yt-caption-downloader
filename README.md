@@ -27,6 +27,7 @@ LANGUAGE2
 
 Dateistruktur von Github Copilot
 
+```
 yt-caption-downloader/
 ├── Dockerfile
 ├── README.md
@@ -62,6 +63,7 @@ yt-caption-downloader/
 │   │   ├── validateUrl.test.js
 ├── .env
 ├── .gitignore
+```
 
 In dieser Struktur:
 
