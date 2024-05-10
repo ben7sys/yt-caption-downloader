@@ -103,6 +103,22 @@ npm install express axios dotenv
 
 6. **Code schreiben**: Beginnen Sie mit dem Schreiben Ihres Codes. Sie könnten mit dem Hauptservercode in `src/index.js` beginnen und dann die einzelnen Komponenten und Hilfsfunktionen implementieren.
 
+// src/index.js
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Routes
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
 7. **Testen**: Schreiben Sie Tests für Ihren Code und führen Sie diese aus, um sicherzustellen, dass alles wie erwartet funktioniert.
 
 8. **Dokumentation**: Aktualisieren Sie Ihre `README.md`-Datei mit Anweisungen zur Installation und Verwendung Ihres Projekts.
